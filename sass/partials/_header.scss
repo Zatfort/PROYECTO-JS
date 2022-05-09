@@ -1,0 +1,31 @@
+/* HEADER & NAVBAR */
+.header{
+    
+    picture{
+        img{
+            width: 100%;
+        }
+    }
+    .navbar{
+        height: 150px;
+        min-height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+    .menu {
+        flex-basis: 50%;
+        justify-content: space-between;
+
+        .menu__item {
+
+            .menu__link{
+               font-size: 2em;
+               padding: 1.5rem;
+               position: relative;
+               
+            }
+        } 
+    }
+}
