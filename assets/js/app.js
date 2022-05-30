@@ -28,8 +28,12 @@ const totalCarrito = () => {
     return sumaTotal
 }
 
+alert("bienvenidos a Paper Factory Sale")
+
+alert("Le mostraremos los productos que tenemos hoy para ofrecerle")
+
 const agregarProducto = () => {
-    const productoElegido = prompt('Elegi un libro entre: Mafalda,Berserk o World of Warcraft').toLowerCase()
+    const productoElegido = prompt('Elegi un libro entre: \n Mafalda \n Berserk \n World of Warcraft').toLowerCase()
 
     switch (productoElegido) {
         case 'mafalda':
@@ -58,3 +62,5 @@ const agregarProducto = () => {
 }
 
 agregarProducto()
+
+alert ("Muchas Gracias por su Compra")
