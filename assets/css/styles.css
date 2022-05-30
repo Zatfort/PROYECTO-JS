@@ -156,6 +156,11 @@ ul {
     .mainbody .contenedor_presentacion .mesaje_presentacion p {
       width: 100px; }
   .mainbody .contenedor_presentacion .user {
+    padding: 10px;
+    height: 200px;
+    border-radius: 50px;
+    background: #0078d4;
+    box-shadow: 17px 17px 4px #5b4b4b, -17px -17px 4px #ffffff;
     text-align: center;
     font-size: 4em;
     margin-top: 50px;
