@@ -70,7 +70,7 @@ const agregarProducto = () => {
                     carrito.push(libros3)
                     libroDisponible = false
                     break
-                    default:
+                default:
                         alert('Por favor, ingresa una opcion correcta')
                     break
             }
