@@ -31,7 +31,7 @@ const totalCarrito = () => {
 
 // objectos para la barra de busqueda 
 const librosop = [
-    {nombre: 'Mafalda'},
+    {nombre: 'mafalda'},
     {nombre: 'berserk'},
     {nombre: 'world of warcraft'},
 ]
@@ -46,27 +46,46 @@ alert("Le mostraremos los productos que tenemos hoy para ofrecerle")
 alert('Elegi un libro entre: \n Mafalda \n Berserk \n World of Warcraft')
 
 const agregarProducto = () => {
-    // const productoElegido = prompt('Elegi un libro entre: \n Mafalda \n Berserk \n World of Warcraft').toLowerCase()
-    const ingresaUsuario = prompt('busque su libro:').toLowerCase()
-    const productoElegido = librosop.filter((libritos) => libritos.nombre.includes(ingresaUsuario))
+    
+    let libroDisponible = true;
 
-    switch (productoElegido) {
-        case 'mafalda':
-            mostrarMensaje(libros1)
-            carrito.push(libros1)
-            break
-        case 'berserk':
-            mostrarMensaje(libros2)
-            carrito.push(libros2)
-            break
-        case 'world of warcraft':
-            mostrarMensaje(libros3)
-            carrito.push(libros3)
-            break
-        default:
+    while(libroDisponible){
+        const ingresaUsuario = prompt('busque su libro:').toLowerCase()
+        
+        productoElegido = librosop.filter((libritos) => libritos.nombre.includes(ingresaUsuario))
+        if(productoElegido.length > 0 ){
+            switch (productoElegido[0].nombre) {
+                case 'mafalda':
+                    mostrarMensaje(libros1)
+                    carrito.push(libros1)
+                    libroDisponible = false
+                    break
+                case 'berserk':
+                    mostrarMensaje(libros2)
+                    carrito.push(libros2)
+                    libroDisponible = false
+                    break
+                case 'world of warcraft':
+                    mostrarMensaje(libros3)
+                    carrito.push(libros3)
+                    libroDisponible = false
+                    break
+                    default:
+                        alert('Por favor, ingresa una opcion correcta')
+                    break
+            }
+
+
+        }else{
             alert('Por favor, ingresa una opcion correcta')
-            break
+        }
+
+
+
+
     }
+
+    
 
     if (confirm('Desea agregar otro producto?')) {
         agregarProducto()
