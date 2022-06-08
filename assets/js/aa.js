@@ -1,6 +1,5 @@
-
 // Simulador de Carrito
-
+/*
 class Libros {
     constructor(nombre, tapa, precio) {
         this.nombre = nombre
@@ -10,8 +9,8 @@ class Libros {
 }
 
 const libros1 = new Libros('Mafalda', "Hardbook", 5.076)
-const libros2 = new Libros('Berserk Volume 1', "Paperbook", 2.221,91)
-const libros3 = new Libros('World of Warcraft', "Hardbook", 1.908,14)
+const libros2 = new Libros('Berserk Volume 1', "Paperbook", 2.221, 91)
+const libros3 = new Libros('World of Warcraft', "Hardbook", 1.908, 14)
 
 const carrito = []
 
@@ -30,10 +29,15 @@ const totalCarrito = () => {
 }
 
 // objectos para la barra de busqueda 
-const librosop = [
-    {nombre: 'mafalda'},
-    {nombre: 'berserk'},
-    {nombre: 'world of warcraft'},
+const librosop = [{
+        nombre: 'mafalda'
+    },
+    {
+        nombre: 'berserk'
+    },
+    {
+        nombre: 'world of warcraft'
+    },
 ]
 
 
@@ -46,14 +50,14 @@ alert("Le mostraremos los productos que tenemos hoy para ofrecerle")
 alert('Elegi un libro entre: \n Mafalda \n Berserk \n World of Warcraft')
 
 const agregarProducto = () => {
-    
+
     let libroDisponible = true;
 
-    while(libroDisponible){
+    while (libroDisponible) {
         const ingresaUsuario = prompt('busque su libro:').toLowerCase()
-        
+
         productoElegido = librosop.filter((libritos) => libritos.nombre.includes(ingresaUsuario))
-        if(productoElegido.length > 0 ){
+        if (productoElegido.length > 0) {
             switch (productoElegido[0].nombre) {
                 case 'mafalda':
                     mostrarMensaje(libros1)
@@ -71,12 +75,12 @@ const agregarProducto = () => {
                     libroDisponible = false
                     break
                 default:
-                        alert('Por favor, ingresa una opcion correcta')
+                    alert('Por favor, ingresa una opcion correcta')
                     break
             }
 
 
-        }else{
+        } else {
             alert('Por favor, ingresa una opcion correcta')
         }
 
@@ -85,7 +89,7 @@ const agregarProducto = () => {
 
     }
 
-    
+
 
     if (confirm('Desea agregar otro producto?')) {
         agregarProducto()
@@ -97,4 +101,47 @@ const agregarProducto = () => {
 
 agregarProducto()
 
-alert ("Muchas Gracias por su Compra")
+alert("Muchas Gracias por su Compra")
+
+*/
+
+
+
+
+
+
+
+
+// Desafio completementario 07/06
+
+class Libros {
+    constructor(nombre, tapa, imgSrc ,precio) {
+        this.nombre = nombre
+        this.tapa = tapa
+        this.imgSrc = imgSrc
+        this.precio = precio
+    }
+}
+
+
+
+const libros1 = new Libros('Mafalda', "Hardbook", " ./assets/images/libro1.jpg" , 5.076 )
+const libros2 = new Libros('Berserk Volume 1', "Paperbook"," ./assets/images/libro2.jpg" ,2.221)
+const libros3 = new Libros('World of Warcraft', "Hardbook"," ./assets/images/libro3.jpg" ,1.908 )
+
+
+const productos = [libros1, libros2, libros3]
+const cardContainer = document.getElementById('cardContainer')
+
+productos.forEach((producto) =>{
+    const card = document.createElement('div')
+    card.className = 'card'
+    card.innerHTML = `
+            <h3 class="cardTitle"> Libro ${producto.nombre} </h3>
+            <img src="${producto.imgSrc}" class="cardImg">
+            <p class="cardDesc"> tipo de tapa ${producto.tapa} </p>
+            <span class="cardPrice"> $${producto.precio} </span>
+            <button class="buttonCTA"> Agregar al Carrito </button>
+        `
+    cardContainer.append(card)
+})

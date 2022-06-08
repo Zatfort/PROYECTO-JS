@@ -165,3 +165,41 @@ ul {
     font-size: 4em;
     margin-top: 50px;
     margin-left: 600px; }
+
+.cardContainer {
+  font-size: large;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%; }
+
+.card {
+  width: 25%;
+  padding: 20px 10px;
+  border-radius: 64px;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff; }
+
+.cardImg {
+  width: 80%; }
+
+.cardPrice {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px; }
+
+.buttonCTA {
+  margin: 10px 0;
+  background-color: #d84d4d;
+  color: #f7f7f7;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer; }
+
+.buttonCTA:hover {
+  background-color: #b84040;
+  box-shadow: 1px 1px 10px lightgrey; }
