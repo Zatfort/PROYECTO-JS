@@ -1,4 +1,118 @@
-// Simulador de Carrito
+// Simulador de Carrito 
+
+class Libros {
+    constructor(nombre, tapa, imgSrc ,precio) {
+        this.nombre = nombre
+        this.tapa = tapa
+        this.imgSrc = imgSrc
+        this.precio = precio
+    }
+}
+
+const libros1 = new Libros('Mafalda', "Hardbook", " ./assets/images/libro1.jpg" , 5.076 )
+const libros2 = new Libros('Berserk Volume 1', "Paperbook"," ./assets/images/libro2.jpg" ,2.221)
+const libros3 = new Libros('World of Warcraft', "Hardbook"," ./assets/images/libro3.jpg" ,1.908 )
+
+
+const productos = [libros1, libros2, libros3]
+
+let carrito = []
+
+const cardContainer = document.querySelector('#cardContainer')
+
+// const cardContainer = document.getElementById('cardContainer')
+
+productos.forEach((producto) =>{
+    const card = document.createElement('div')
+    card.className = 'card'
+    card.innerHTML = `
+            <h3 class="cardTitle"> Libro ${producto.nombre} </h3>
+            <img src="${producto.imgSrc}" class="cardImg">
+            <p class="cardDesc"> tipo de tapa ${producto.tapa} </p>
+            <span class="cardPrice"> $${producto.precio} </span>
+            <button data-id="${producto.nombre}" class="buttonCTA"> Agregar al Carrito </button>
+        `
+    cardContainer.append(card)
+})
+
+const agregarProducto = (e) => {
+    const productoElegido = e.target.getAttribute('data-id')
+    const producto = productos.find((producto) => producto.nombre ==  productoElegido)
+    carrito.push(producto)
+    console.log(carrito)
+}
+
+const botonesCompra = document.querySelectorAll('.buttonCTA')
+botonesCompra.forEach((botonCompra) => {
+    botonCompra.addEventListener('click', agregarProducto)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 class Libros {
     constructor(nombre, tapa, precio) {
@@ -104,44 +218,3 @@ agregarProducto()
 alert("Muchas Gracias por su Compra")
 
 */
-
-
-
-
-
-
-
-
-// Desafio completementario 07/06
-
-class Libros {
-    constructor(nombre, tapa, imgSrc ,precio) {
-        this.nombre = nombre
-        this.tapa = tapa
-        this.imgSrc = imgSrc
-        this.precio = precio
-    }
-}
-
-
-
-const libros1 = new Libros('Mafalda', "Hardbook", " ./assets/images/libro1.jpg" , 5.076 )
-const libros2 = new Libros('Berserk Volume 1', "Paperbook"," ./assets/images/libro2.jpg" ,2.221)
-const libros3 = new Libros('World of Warcraft', "Hardbook"," ./assets/images/libro3.jpg" ,1.908 )
-
-
-const productos = [libros1, libros2, libros3]
-const cardContainer = document.getElementById('cardContainer')
-
-productos.forEach((producto) =>{
-    const card = document.createElement('div')
-    card.className = 'card'
-    card.innerHTML = `
-            <h3 class="cardTitle"> Libro ${producto.nombre} </h3>
-            <img src="${producto.imgSrc}" class="cardImg">
-            <p class="cardDesc"> tipo de tapa ${producto.tapa} </p>
-            <span class="cardPrice"> $${producto.precio} </span>
-            <button class="buttonCTA"> Agregar al Carrito </button>
-        `
-    cardContainer.append(card)
-})
